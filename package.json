@@ -1,0 +1,18 @@
+{
+  "name": "family-planner",
+  "private": "true",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "reset": "rm -rf node_modules apps/mobile/node_modules apps/web/node_modules bun.lockb apps/mobile/bun.lockb apps/web/bun.lockb && bun install",
+    "typecheck": "bunx --bun tsc",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --apply .",
+    "format": "biome format .",
+    "format:fix": "biome format --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.3.3"
+  }
+}
