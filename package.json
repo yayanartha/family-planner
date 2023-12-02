@@ -4,6 +4,9 @@
 	"workspaces": ["apps/*", "packages/*"],
 	"scripts": {
 		"reset": "rm -rf node_modules apps/mobile/node_modules apps/web/node_modules bun.lockb apps/mobile/bun.lockb apps/web/bun.lockb && bun install",
+		"backend": "cd apps/backend && bun dev",
+		"android": "cd apps/mobile && bun android --reset-cache",
+		"ios": "cd apps/mobile && bun ios --reset-cache",
 		"typecheck": "bunx --bun tsc",
 		"lint": "biome lint .",
 		"lint:fix": "biome lint --apply .",
