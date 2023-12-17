@@ -15,7 +15,7 @@ async function load() {
 export const HomeScreen = () => {
 	return (
 		<View className="bg-red-600">
-			<Text className="p-10 text-white">Tab One</Text>
+			<Text className="p-10 text-white">Home</Text>
 			{/* <Button title="Load" onPress={load} /> */}
 		</View>
 	);
