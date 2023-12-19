@@ -9,7 +9,7 @@ import {
 	HomeIcon,
 	FinanceIcon,
 	GroceriesIcon,
-	ProfileIcon,
+	ArchiveIcon,
 } from "app/design/atoms/icons";
 
 const TabBar = ({ navigation, state, descriptors }: BottomTabBarProps) => {
@@ -99,11 +99,11 @@ export default function TabLayout() {
 					}}
 				/>
 				<Tabs.Screen
-					name="profile"
+					name="archive"
 					options={{
-						href: "/profile",
-						tabBarLabel: "Profile",
-						tabBarIcon: () => ProfileIcon,
+						href: "/archive",
+						tabBarLabel: "Archive",
+						tabBarIcon: () => ArchiveIcon,
 					}}
 				/>
 			</Tabs>
