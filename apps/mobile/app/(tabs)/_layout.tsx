@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { useTheme } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -10,13 +10,14 @@ import {
 	FinanceIcon,
 	GroceriesIcon,
 	ArchiveIcon,
-} from "app/design/atoms/icons";
+} from "../../../../packages/design-system/atoms/icons";
+import { Text } from "design-system/atoms";
 
 const TabBar = ({ navigation, state, descriptors }: BottomTabBarProps) => {
 	const { colors } = useTheme();
 
 	return (
-		<SafeAreaView edges={["bottom"]}>
+		<SafeAreaView>
 			<View className="flex-row h-16 bg-black rounded-full m-2 overflow-hidden space-x-2 px-2">
 				{state.routes.map((route, index) => {
 					const { options } = descriptors[route.key];
@@ -41,7 +42,6 @@ const TabBar = ({ navigation, state, descriptors }: BottomTabBarProps) => {
 									}) as ImageSource
 								}
 								style={{ width: 20, height: 20, tintColor: color }}
-								contentFit="contain"
 							/>
 
 							<Text
