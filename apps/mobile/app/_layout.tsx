@@ -1,9 +1,6 @@
-import { ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
-import { useColorScheme } from "react-native";
-import { darkTheme, lightTheme } from "../../../packages/design-system/theme";
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -20,6 +17,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
 	const [loaded, error] = useFonts({
+		IcoMoon: require("../assets/fonts/icomoon.ttf"),
 		SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
 		GabaritoBlack: require("../assets/fonts/Gabarito-Black.ttf"),
 		GabaritoBold: require("../assets/fonts/Gabarito-Bold.ttf"),
@@ -48,14 +46,10 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-	const colorScheme = useColorScheme();
-
 	return (
-		<ThemeProvider value={colorScheme === "dark" ? darkTheme : lightTheme}>
-			<Stack>
-				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-				<Stack.Screen name="modal" options={{ presentation: "modal" }} />
-			</Stack>
-		</ThemeProvider>
+		<Stack>
+			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+			<Stack.Screen name="modal" options={{ presentation: "modal" }} />
+		</Stack>
 	);
 }

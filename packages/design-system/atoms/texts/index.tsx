@@ -5,14 +5,20 @@ const Text = (props: TextProps) => {
 	return <RNText className="text-text" {...props} />;
 };
 
-const P = styled(Text, "font-[GabaritoRegular]");
+const TextP = styled(Text, "font-[GabaritoRegular]");
 
-const H1 = styled(Text, "text-3xl font-[GabaritoSemiBold]");
+const TextH1 = styled(Text, "text-3xl font-[GabaritoBold]");
 
-const H2 = styled(Text, "text-2xl font-[GabaritoSemiBold]");
+const TextH2 = styled(Text, "text-2xl font-[GabaritoBold]");
 
-Text.P = P;
-Text.H1 = H1;
-Text.H2 = H2;
+const TextLabel = styled(Text, "text-border font-[GabaritoSemiBold]");
+
+const TextButton = styled(Text, "text-lg font-[GabaritoSemiBold]");
+
+Text.P = TextP;
+Text.Label = TextLabel;
+Text.H1 = TextH1;
+Text.H2 = TextH2;
+Text.Button = TextButton;
 
 export default Text;

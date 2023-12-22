@@ -13,13 +13,14 @@ module.exports = {
 			colors: {
 				primary: "#050608",
 				secondary: "#54EA54",
-				background: "#FFFFFF",
-				card: "#E6EDFF",
+				background: "#E6EDFF",
+				card: "#FFFFFF",
 				text: "#1E2631",
-				border: "#7E838A",
+				border: "#BFBFBF",
 				notification: "#EE4444",
 			},
 			fontFamily: {
+				IcoMoon: "IcoMoon",
 				GabaritoRegular: "Gabarito-Regular",
 				GabaritoSemiBold: "Gabarito-SemiBold",
 				GabaritoBold: "Gabarito-Bold",
