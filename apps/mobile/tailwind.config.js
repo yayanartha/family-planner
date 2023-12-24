@@ -12,12 +12,13 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: "#050608",
-				secondary: "#54EA54",
-				background: "#E6EDFF",
-				card: "#FFFFFF",
+				secondary: "#16c784",
+				background: "#FFFFFF",
+				card: "#F3F3F3",
 				text: "#1E2631",
-				border: "#BFBFBF",
-				notification: "#EE4444",
+				form: "#EFEEF2",
+				border: "#9B9D9E",
+				notification: "#ea3943",
 			},
 			fontFamily: {
 				IcoMoon: "IcoMoon",

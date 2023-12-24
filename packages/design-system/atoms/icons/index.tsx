@@ -6,11 +6,16 @@ import { colors } from "../../colors";
 const icons = {
 	"alert-circle": "",
 	archive: "",
+	"arrow-right": "",
+	bell: "",
 	calendar: "",
 	"chevron-down": "",
+	"chevron-right": "",
 	home: "",
 	"pie-chart": "",
 	"shopping-bag": "",
+	"trending-down": "",
+	"trending-up": "",
 	user: "",
 };
 

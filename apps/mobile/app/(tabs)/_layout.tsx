@@ -9,7 +9,7 @@ import { Text, Icon } from "design-system/atoms";
 const TabBar = ({ navigation, state, descriptors }: BottomTabBarProps) => {
 	return (
 		<SafeAreaView>
-			<View className="flex-row h-16 bg-black rounded-full m-2 overflow-hidden space-x-2 px-2">
+			<View className="flex-row h-16 bg-black rounded-full my-2 mx-4 overflow-hidden space-x-2 px-2">
 				{state.routes.map((route, index) => {
 					const { options } = descriptors[route.key];
 					const focused = index === state.index;
@@ -24,11 +24,12 @@ const TabBar = ({ navigation, state, descriptors }: BottomTabBarProps) => {
 							onPress={() => navigation.navigate(route.name)}
 							className="flex-1 h-full items-center justify-center space-y-1"
 						>
-							{options.tabBarIcon?.({ focused, size: 20, color })}
+							{options.tabBarIcon?.({ focused, size: 16, color })}
 
 							<Text
 								style={{
 									color,
+									fontSize: 12,
 									fontFamily: focused ? "GabaritoSemiBold" : "GabaritoRegular",
 								}}
 							>
@@ -50,8 +51,8 @@ export default function TabLayout() {
 				screenOptions={{
 					headerShown: false,
 					tabBarHideOnKeyboard: true,
-					tabBarActiveTintColor: colors.card,
-					tabBarInactiveTintColor: colors.border,
+					tabBarActiveTintColor: colors.background,
+					tabBarInactiveTintColor: `${colors.border}99`,
 				}}
 			>
 				<Tabs.Screen
@@ -85,12 +86,12 @@ export default function TabLayout() {
 					}}
 				/>
 				<Tabs.Screen
-					name="archive"
+					name="calendar"
 					options={{
-						href: "/archive",
-						tabBarLabel: "Archive",
+						href: "/calendar",
+						tabBarLabel: "Calendar",
 						tabBarIcon: ({ color, size }) => (
-							<Icon name="archive" size={size} color={color} />
+							<Icon name="calendar" size={size} color={color} />
 						),
 					}}
 				/>
