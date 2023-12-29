@@ -7,7 +7,11 @@ interface Props extends PressableProps {
 
 export const Section = ({ title, ...props }: Props) => {
 	return (
-		<Button className="flex-row items-center px-4" {...props}>
+		<Button
+			className="flex-row items-center px-4"
+			android_ripple={null}
+			{...props}
+		>
 			<View className="flex-1">
 				<Text.Section>{title}</Text.Section>
 			</View>

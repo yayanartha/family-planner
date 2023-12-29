@@ -1,13 +1,29 @@
 import { useMemo, Children, cloneElement } from "react";
-import { Pressable, PressableProps, TextProps } from "react-native";
+import {
+	Pressable,
+	PressableProps,
+	TextProps,
+	Platform,
+	StyleProp,
+	ViewStyle,
+} from "react-native";
 import { styled } from "nativewind";
 import Text from "../texts";
+import { colors } from "../../colors";
 
 interface Props extends PressableProps {
 	labelStyle?: TextProps["style"];
 }
 
-const Button = ({ children, labelStyle, ...props }: Props) => {
+const Button = ({
+	children,
+	android_ripple = {
+		foreground: true,
+		color: colors.form,
+	},
+	labelStyle,
+	...props
+}: Props) => {
 	const renderChildren = useMemo(() => {
 		return Children.map(children, (child: any) => {
 			if (typeof child === "string") {
@@ -22,7 +38,9 @@ const Button = ({ children, labelStyle, ...props }: Props) => {
 
 	return (
 		<Pressable
-			className="rounded-2xl flex-row items-center justify-center h-14"
+			className="rounded-2xl flex-row items-center justify-center h-14 overflow-hidden opacity-100 active:opacity-60"
+			accessibilityRole="button"
+			android_ripple={android_ripple}
 			{...props}
 		>
 			{renderChildren}
@@ -45,7 +63,7 @@ const ButtonSecondary = styled(Button, "border border-border", {
 	},
 });
 ButtonSecondary.defaultProps = {
-	labelStyle: "text-text",
+	labelStyle: "text-primary",
 };
 
 Button.Primary = ButtonPrimary;

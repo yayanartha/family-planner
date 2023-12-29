@@ -8,8 +8,11 @@ import { Text, Icon } from "design-system/atoms";
 
 const TabBar = ({ navigation, state, descriptors }: BottomTabBarProps) => {
 	return (
-		<SafeAreaView>
-			<View className="flex-row h-16 bg-black rounded-full my-2 mx-4 overflow-hidden space-x-2 px-2">
+		<SafeAreaView
+			edges={["bottom"]}
+			style={{ backgroundColor: colors.background }}
+		>
+			<View className="flex-row h-16 bg-primary rounded-full mx-4 overflow-hidden space-x-2 px-2">
 				{state.routes.map((route, index) => {
 					const { options } = descriptors[route.key];
 					const focused = index === state.index;

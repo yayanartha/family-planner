@@ -28,7 +28,7 @@ interface Props extends TextProps {
 const Icon = ({
 	name,
 	size = 24,
-	color = colors.text,
+	color = colors.primary,
 	style,
 	...props
 }: Props) => {

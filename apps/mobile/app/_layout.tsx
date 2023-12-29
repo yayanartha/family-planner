@@ -1,3 +1,4 @@
+import { configureNumeral } from "app/utils/currency";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
@@ -11,6 +12,8 @@ export const unstable_settings = {
 	// Ensure that reloading on `/modal` keeps a back button present.
 	initialRouteName: "(tabs)",
 };
+
+configureNumeral();
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();

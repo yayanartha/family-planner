@@ -2,7 +2,7 @@ import { Text as RNText, TextProps } from "react-native";
 import { styled } from "nativewind";
 
 const Text = (props: TextProps) => {
-	return <RNText className="text-text" {...props} />;
+	return <RNText className="text-primary" {...props} />;
 };
 
 const TextP = styled(Text, "font-[GabaritoRegular]");
@@ -15,7 +15,7 @@ const TextH3 = styled(Text, "text-xl font-[GabaritoBold]");
 
 const TextSection = styled(Text, "text-xl font-[GabaritoSemiBold]");
 
-const TextLabel = styled(Text, "text-border font-[GabaritoSemiBold]");
+const TextLabel = styled(Text, "text-border font-[GabaritoMedium]");
 
 const TextButton = styled(Text, "text-lg font-[GabaritoSemiBold]");
 
