@@ -11,7 +11,7 @@ import {
 import { SectionSpendings } from "./section-spendings";
 import { Spending } from "../../schemas/spending.schema";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { GradientFooter } from "design-system/atoms";
+import { GradientView } from "design-system/atoms";
 import { SectionEvents } from "./section-events";
 import { Event } from "../../schemas/event.schema";
 
@@ -77,7 +77,7 @@ export const HomeScreen = () => {
 
 	return (
 		<View className="flex-1 bg-background">
-			<View className="py-2" style={{ gap: 8 }}>
+			<View style={{ gap: 8 }}>
 				<SafeAreaView
 					edges={["top"]}
 					style={{
@@ -226,9 +226,9 @@ export const HomeScreen = () => {
 					ListFooterComponent={renderFooter}
 					contentContainerStyle={{ paddingVertical: 16, gap: 20 }}
 				/>
+				<GradientView inverted />
+				<GradientView />
 			</View>
-
-			<GradientFooter />
 		</View>
 	);
 };
