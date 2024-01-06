@@ -8,10 +8,12 @@ import {
 	Section,
 	TabBar,
 } from "design-system/molecules";
-import { SectionSpending } from "./section-spendings";
+import { SectionSpendings } from "./section-spendings";
 import { Spending } from "../../schemas/spending.schema";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { GradientFooter } from "design-system/atoms";
+import { SectionEvents } from "./section-events";
+import { Event } from "../../schemas/event.schema";
 
 enum FilterTab {
 	Today = 0,
@@ -35,7 +37,7 @@ type HomeData =
 	  }
 	| {
 			section: "Events";
-			data: [];
+			data: Event[];
 	  }
 	| {
 			section: "To Do List";
@@ -47,15 +49,11 @@ export const HomeScreen = () => {
 
 	const renderItem: ListRenderItem<HomeData> = useCallback(({ item }) => {
 		if (item.section === "Spendings") {
-			return <SectionSpending data={item.data} />;
+			return <SectionSpendings data={item.data} />;
 		}
 
 		if (item.section === "Events") {
-			return (
-				<View style={{ gap: 8 }}>
-					<Section title="Events" />
-				</View>
-			);
+			return <SectionEvents data={item.data} />;
 		}
 
 		if (item.section === "To Do List") {
@@ -127,12 +125,12 @@ export const HomeScreen = () => {
 										{
 											id: 1,
 											name: "User 1",
-											photo: "https://picsum.photos/seed/picsum/110/110",
+											photo: "https://source.unsplash.com/random/100x100?sig=4",
 										},
 										{
 											id: 2,
 											name: "User 2",
-											photo: "https://picsum.photos/seed/picsum/100/100",
+											photo: "https://source.unsplash.com/random/100x100?sig=5",
 										},
 									],
 								},
@@ -146,12 +144,26 @@ export const HomeScreen = () => {
 										{
 											id: 1,
 											name: "User 1",
-											photo: "https://picsum.photos/seed/picsum/110/110",
+											photo: "https://source.unsplash.com/random/100x100?sig=6",
 										},
 										{
 											id: 2,
 											name: "User 2",
-											photo: "https://picsum.photos/seed/picsum/100/100",
+											photo: "https://source.unsplash.com/random/100x100?sig=7",
+										},
+									],
+								},
+								{
+									id: 3,
+									icon: "🎓",
+									name: "Education",
+									amount: 1100000,
+									budget: 1100000,
+									participants: [
+										{
+											id: 1,
+											name: "User 1",
+											photo: "https://source.unsplash.com/random/100x100?sig=7",
 										},
 									],
 								},
@@ -159,7 +171,51 @@ export const HomeScreen = () => {
 						},
 						{
 							section: "Events",
-							data: [],
+							data: [
+								{
+									id: 1,
+									image: "https://source.unsplash.com/random/600x600?sig=14",
+									name: "Japan Trip Here We Go!! 🥺👉👈",
+									category: "TRAVELING",
+									description:
+										"7 days 6 nights in Japan with our big lovely family. Gonna visit popular landmarks in Osaka, Tokyo, and many more.",
+									start_date: 1703025857,
+									end_date: 1703630657,
+									participants: [
+										{
+											id: 1,
+											name: "User 1",
+											photo: "https://source.unsplash.com/random/100x100?sig=2",
+										},
+										{
+											id: 2,
+											name: "User 2",
+											photo: "https://source.unsplash.com/random/100x100?sig=3",
+										},
+									],
+								},
+								{
+									id: 2,
+									image: "https://source.unsplash.com/random/600x600?sig=16",
+									name: "SG Again Kuyy",
+									category: "TRAVELING",
+									description: "Just chillin, no party",
+									start_date: 1703025857,
+									end_date: 1703630657,
+									participants: [
+										{
+											id: 1,
+											name: "User 1",
+											photo: "https://source.unsplash.com/random/100x100?sig=2",
+										},
+										{
+											id: 2,
+											name: "User 2",
+											photo: "https://source.unsplash.com/random/100x100?sig=3",
+										},
+									],
+								},
+							],
 						},
 						{
 							section: "To Do List",

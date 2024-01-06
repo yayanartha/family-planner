@@ -60,6 +60,7 @@ export const TabBar = ({ data, activeIndex = 0, onIndexChanged }: Props) => {
 					onPress={() => onIndexChanged(index)}
 					className="h-full"
 					style={{ width: tabWidth }}
+					contentCentered
 				>
 					{title}
 				</Button>

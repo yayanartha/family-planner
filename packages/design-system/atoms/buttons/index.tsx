@@ -13,15 +13,17 @@ import { colors } from "../../colors";
 
 interface Props extends PressableProps {
 	labelStyle?: TextProps["style"];
+	contentCentered?: boolean;
 }
 
 const Button = ({
 	children,
 	android_ripple = {
 		foreground: true,
-		color: colors.form,
+		color: `${colors.primary}11`,
 	},
 	labelStyle,
+	contentCentered,
 	...props
 }: Props) => {
 	const renderChildren = useMemo(() => {
@@ -38,7 +40,9 @@ const Button = ({
 
 	return (
 		<Pressable
-			className="rounded-2xl flex-row items-center justify-center h-14 overflow-hidden opacity-100 active:opacity-60"
+			className={`rounded-2xl overflow-hidden opacity-100 active:opacity-60 ${
+				contentCentered ? "flex-row items-center justify-center" : ""
+			}`}
 			accessibilityRole="button"
 			android_ripple={android_ripple}
 			{...props}
@@ -48,18 +52,20 @@ const Button = ({
 	);
 };
 
-const ButtonPrimary = styled(Button, "bg-primary", {
+const ButtonPrimary = styled(Button, "bg-primary h-14", {
 	props: {
 		labelStyle: true,
+		contentCentered: true,
 	},
 });
 ButtonPrimary.defaultProps = {
 	labelStyle: "text-card",
 };
 
-const ButtonSecondary = styled(Button, "border border-border", {
+const ButtonSecondary = styled(Button, "border border-border h-14", {
 	props: {
 		labelStyle: true,
+		contentCentered: true,
 	},
 });
 ButtonSecondary.defaultProps = {

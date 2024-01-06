@@ -25,7 +25,7 @@ export const ChartDashboardWithLegend = ({
 				<ChartDashboard.Legend
 					label="Incomes"
 					value={incomesAmount}
-					color={colors.primary}
+					color={colors.secondary}
 				/>
 
 				<ChartDashboard.Legend
@@ -38,7 +38,7 @@ export const ChartDashboardWithLegend = ({
 				<ChartDashboard.Legend
 					label="Expenses"
 					value={expensesAmount}
-					color={colors.notification}
+					color={colors.primary}
 				/>
 			</View>
 		</View>

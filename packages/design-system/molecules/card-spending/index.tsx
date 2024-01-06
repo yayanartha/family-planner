@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { View, useWindowDimensions } from "react-native";
-import { Text } from "../../atoms";
+import { Button, Text } from "../../atoms";
 import { colors } from "../../colors";
 import { toCurrency } from "app/utils/currency";
 import { Image } from "expo-image";
@@ -11,7 +11,10 @@ interface Props {
 	name: string;
 	amount: number;
 	budget: number;
-	participants: { id: number; photo: string }[];
+	participants: {
+		id: number;
+		photo: string;
+	}[];
 }
 
 export const CardSpending = ({
@@ -24,7 +27,7 @@ export const CardSpending = ({
 }: Props) => {
 	const { width: screenWidth } = useWindowDimensions();
 
-	const spendingsCardWidth = useMemo(
+	const cardWidth = useMemo(
 		() => (screenWidth - 32 - 12) * 0.45,
 		[screenWidth],
 	);
@@ -35,20 +38,22 @@ export const CardSpending = ({
 		return Math.min(progress, 100);
 	}, [amount, budget]);
 
-	return (
-		<View
-			className="p-4 rounded-2xl bg-card"
-			style={{ width: spendingsCardWidth, gap: 16 }}
-		>
-			<View style={{ gap: 8 }}>
-				<View className="flex-row items-center gap-x-2">
-					<Text.H2>{icon}</Text.H2>
-					<View className="flex-1">
-						<Text.Button numberOfLines={1}>{name}</Text.Button>
-					</View>
-				</View>
+	const isCompleted = useMemo(() => progressWidth >= 100, [progressWidth]);
 
-				{/* <Text.P className="text-border">Dec 24, 14:39</Text.P> */}
+	return (
+		<Button
+			className="p-4 rounded-2xl bg-card border border-form"
+			onPress={() => null}
+			style={{
+				width: cardWidth,
+				gap: 16,
+			}}
+		>
+			<View className="flex-row" style={{ gap: 8 }}>
+				<Text.H2>{icon}</Text.H2>
+				<View className="flex-1">
+					<Text.Button numberOfLines={1}>{name}</Text.Button>
+				</View>
 			</View>
 
 			<View style={{ gap: 8 }}>
@@ -59,7 +64,9 @@ export const CardSpending = ({
 					style={{ backgroundColor: `${colors.border}66` }}
 				>
 					<View
-						className="bg-primary h-full rounded-lg"
+						className={`h-full rounded-lg ${
+							isCompleted ? "bg-secondary" : "bg-primary"
+						}`}
 						style={{ width: `${progressWidth}%` }}
 					/>
 				</View>
@@ -71,15 +78,19 @@ export const CardSpending = ({
 						<Image
 							key={p.id}
 							source={p.photo}
-							className={`rounded-full bg-border border-2 border-background ${
+							className={`rounded-2xl bg-border border-2 border-background ${
 								index === 0 ? "w-10 h-10" : "w-9 h-9"
 							}`}
 						/>
 					))}
 				</View>
 
-				<Text.H3>🔥</Text.H3>
+				{isCompleted ? (
+					<Text.H3>💯</Text.H3>
+				) : (
+					progressWidth > 70 && <Text.H3>🔥</Text.H3>
+				)}
 			</View>
-		</View>
+		</Button>
 	);
 };

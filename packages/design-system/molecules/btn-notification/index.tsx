@@ -6,12 +6,12 @@ export const BtnNotification = () => {
 
 	return (
 		<View>
-			<Button className="bg-card w-11 h-11 rounded-full">
+			<Button className="bg-card w-11 h-11 rounded-full" contentCentered>
 				<Icon name="bell" size={20} />
 			</Button>
 
 			{hasUnreadNotification && (
-				<View className="absolute w-3 h-3 rounded-full bg-notification right-0 top-0" />
+				<View className="absolute w-4 h-4 rounded-full bg-primary right-0 top-0 border-2 border-background" />
 			)}
 		</View>
 	);

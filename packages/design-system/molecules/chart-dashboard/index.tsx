@@ -71,7 +71,7 @@ const ChartDashboard = ({
 				innerRadius={70}
 				labels={() => null}
 				cornerRadius={10}
-				colorScale={[colors.notification, colors.primary, colors.form]}
+				colorScale={[colors.primary, colors.secondary, colors.form]}
 			/>
 
 			<View className="absolute w-[160px] h-[160px] items-center justify-center">

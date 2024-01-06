@@ -2,20 +2,23 @@ import { useCallback } from "react";
 import { CardSpending, Section } from "design-system/molecules";
 import { View, FlatList, ListRenderItem } from "react-native";
 import { Spending } from "../../schemas/spending.schema";
+import { Event } from "../../schemas/event.schema";
+import { CardEvent } from "design-system/molecules/card-event";
 
 interface Props {
-	data: Spending[];
+	data: Event[];
 }
 
-export const SectionSpendings = ({ data }: Props) => {
-	const renderItem: ListRenderItem<Spending> = useCallback(
+export const SectionEvents = ({ data }: Props) => {
+	const renderItem: ListRenderItem<Event> = useCallback(
 		({ item }) => (
-			<CardSpending
+			<CardEvent
 				id={item.id}
-				icon={item.icon}
+				image={item.image}
 				name={item.name}
-				amount={item.amount}
-				budget={item.budget}
+				category={item.category}
+				description={item.description}
+				start_date={item.start_date}
 				participants={item.participants}
 			/>
 		),
@@ -26,7 +29,7 @@ export const SectionSpendings = ({ data }: Props) => {
 
 	return (
 		<View style={{ gap: 8 }}>
-			<Section title="Spendings" />
+			<Section title="Events" />
 
 			<FlatList
 				data={data}
