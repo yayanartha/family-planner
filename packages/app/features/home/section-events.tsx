@@ -1,7 +1,11 @@
-import { useCallback } from "react";
-import { CardSpending, Section } from "design-system/molecules";
-import { View, FlatList, ListRenderItem } from "react-native";
-import { Spending } from "../../schemas/spending.schema";
+import { useCallback, useMemo } from "react";
+import { Section } from "design-system/molecules";
+import {
+	View,
+	FlatList,
+	ListRenderItem,
+	useWindowDimensions,
+} from "react-native";
 import { Event } from "../../schemas/event.schema";
 import { CardEvent } from "design-system/molecules/card-event";
 
@@ -10,6 +14,9 @@ interface Props {
 }
 
 export const SectionEvents = ({ data }: Props) => {
+	const { width: screenWidth } = useWindowDimensions();
+	const cardWidth = useMemo(() => (screenWidth - 32) * 0.9, [screenWidth]);
+
 	const renderItem: ListRenderItem<Event> = useCallback(
 		({ item }) => (
 			<CardEvent
@@ -20,9 +27,10 @@ export const SectionEvents = ({ data }: Props) => {
 				description={item.description}
 				start_date={item.start_date}
 				participants={item.participants}
+				width={cardWidth}
 			/>
 		),
-		[],
+		[cardWidth],
 	);
 
 	const renderSeparator = useCallback(() => <View className="w-4" />, []);
@@ -38,6 +46,10 @@ export const SectionEvents = ({ data }: Props) => {
 				horizontal
 				ItemSeparatorComponent={renderSeparator}
 				renderItem={renderItem}
+				pagingEnabled
+				snapToInterval={cardWidth}
+				snapToAlignment="start"
+				decelerationRate="fast"
 			/>
 		</View>
 	);

@@ -1,6 +1,5 @@
-import { View, useWindowDimensions } from "react-native";
+import { View } from "react-native";
 import { Image } from "expo-image";
-import { useMemo } from "react";
 import { Button, Text } from "../../atoms";
 import { LinearGradient } from "expo-linear-gradient";
 import { colors } from "../../colors";
@@ -17,6 +16,7 @@ interface Props {
 		id: number;
 		photo: string;
 	}[];
+	width: number;
 }
 
 export const CardEvent = ({
@@ -27,14 +27,12 @@ export const CardEvent = ({
 	description,
 	start_date,
 	participants,
+	width,
 }: Props) => {
-	const { width: screenWidth } = useWindowDimensions();
-	const cardWidth = useMemo(() => (screenWidth - 32) * 0.9, [screenWidth]);
-
 	return (
 		<Button
 			className="rounded-2xl overflow-hidden border border-form"
-			style={{ width: cardWidth }}
+			style={{ width }}
 		>
 			<View>
 				<Image

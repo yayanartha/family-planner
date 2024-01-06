@@ -167,6 +167,21 @@ export const HomeScreen = () => {
 										},
 									],
 								},
+								{
+									id: 4,
+									icon: "🤱",
+									name: "Nanny",
+									amount: 1600000,
+									budget: 1600000,
+									participants: [
+										{
+											id: 1,
+											name: "User 1",
+											photo:
+												"https://source.unsplash.com/random/100x100?sig=66",
+										},
+									],
+								},
 							],
 						},
 						{
@@ -196,6 +211,29 @@ export const HomeScreen = () => {
 								},
 								{
 									id: 2,
+									image: "https://source.unsplash.com/random/600x600?sig=19",
+									name: "Rapotan Wayan",
+									category: "SCHOOL",
+									description: "Dateng pagi, jangan telat",
+									start_date: 1703025857,
+									end_date: 1703630657,
+									participants: [
+										{
+											id: 1,
+											name: "User 1",
+											photo:
+												"https://source.unsplash.com/random/100x100?sig=20",
+										},
+										{
+											id: 2,
+											name: "User 2",
+											photo:
+												"https://source.unsplash.com/random/100x100?sig=30",
+										},
+									],
+								},
+								{
+									id: 3,
 									image: "https://source.unsplash.com/random/600x600?sig=16",
 									name: "SG Again Kuyy",
 									category: "TRAVELING",

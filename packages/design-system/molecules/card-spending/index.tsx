@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { View, useWindowDimensions } from "react-native";
+import { View } from "react-native";
 import { Button, Text } from "../../atoms";
 import { colors } from "../../colors";
 import { toCurrency } from "app/utils/currency";
@@ -15,6 +15,7 @@ interface Props {
 		id: number;
 		photo: string;
 	}[];
+	width: number;
 }
 
 export const CardSpending = ({
@@ -24,14 +25,8 @@ export const CardSpending = ({
 	amount,
 	budget,
 	participants,
+	width,
 }: Props) => {
-	const { width: screenWidth } = useWindowDimensions();
-
-	const cardWidth = useMemo(
-		() => (screenWidth - 32 - 12) * 0.45,
-		[screenWidth],
-	);
-
 	const progressWidth = useMemo(() => {
 		const progress = (amount / budget) * 100;
 
@@ -44,10 +39,7 @@ export const CardSpending = ({
 		<Button
 			className="p-4 rounded-2xl bg-card border border-form"
 			onPress={() => null}
-			style={{
-				width: cardWidth,
-				gap: 16,
-			}}
+			style={{ width, gap: 16 }}
 		>
 			<View className="flex-row" style={{ gap: 8 }}>
 				<Text.H2>{icon}</Text.H2>
