@@ -74,7 +74,9 @@ export const CardEvent = ({
 					{category}
 				</Text.Button>
 				<Text.H3 numberOfLines={1}>{name}</Text.H3>
-				<Text.P numberOfLines={2}>{description}</Text.P>
+				<Text.P numberOfLines={2} className="text-border">
+					{description}
+				</Text.P>
 			</View>
 		</Button>
 	);

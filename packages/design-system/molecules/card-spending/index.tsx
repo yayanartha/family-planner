@@ -39,7 +39,7 @@ export const CardSpending = ({
 		<Button
 			className="p-4 rounded-2xl bg-card border border-form"
 			onPress={() => null}
-			style={{ width, gap: 16 }}
+			style={{ width, height: 154, gap: 16 }}
 		>
 			<View className="flex-row" style={{ gap: 8 }}>
 				<Text.H2>{icon}</Text.H2>

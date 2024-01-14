@@ -27,7 +27,7 @@ const TabBar = ({ navigation, state, descriptors }: BottomTabBarProps) => {
 							onPress={() => navigation.navigate(route.name)}
 							className="flex-1 h-full items-center justify-center space-y-1"
 						>
-							{options.tabBarIcon?.({ focused, size: 16, color })}
+							{options.tabBarIcon?.({ focused, size: 20, color })}
 
 							<Text
 								style={{

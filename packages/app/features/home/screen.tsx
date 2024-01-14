@@ -14,6 +14,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { GradientView } from "design-system/atoms";
 import { SectionEvents } from "./section-events";
 import { Event } from "../../schemas/event.schema";
+import { Todo } from "../../schemas/todo.schema";
+import { SectionTodo } from "./section-todo";
 
 enum FilterTab {
 	Today = 0,
@@ -41,7 +43,7 @@ type HomeData =
 	  }
 	| {
 			section: "To Do List";
-			data: [];
+			data: Todo[];
 	  };
 
 export const HomeScreen = () => {
@@ -57,11 +59,7 @@ export const HomeScreen = () => {
 		}
 
 		if (item.section === "To Do List") {
-			return (
-				<View style={{ gap: 8 }}>
-					<Section title="To Do List" />
-				</View>
-			);
+			return <SectionTodo data={item.data} />;
 		}
 
 		return (
@@ -82,6 +80,7 @@ export const HomeScreen = () => {
 					edges={["top"]}
 					style={{
 						paddingHorizontal: 16,
+						paddingVertical: 8,
 						flexDirection: "row",
 						alignItems: "center",
 						gap: 12,
@@ -257,7 +256,18 @@ export const HomeScreen = () => {
 						},
 						{
 							section: "To Do List",
-							data: [],
+							data: [
+								{
+									id: 1,
+									title: "Beli isian salad dan dressing",
+									done: false,
+								},
+								{
+									id: 2,
+									title: "Bayar uang gedung sekolah Rio",
+									done: false,
+								},
+							],
 						},
 					]}
 					renderItem={renderItem}
